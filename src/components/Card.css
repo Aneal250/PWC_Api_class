@@ -1,0 +1,21 @@
+.card {
+	max-width: 300px;
+	margin: 0 auto;
+	box-shadow: 10px 10px 20px black;
+	padding: 20px;
+	border-radius: 12px;
+}
+
+.cardPost {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	box-shadow: 10px 10px 20px black;
+	padding: 20px;
+	border-radius: 12px;
+	color: white;
+}
+
+.post-btn {
+	margin: 3px 4px;
+}
