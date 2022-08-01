@@ -4,6 +4,7 @@ import "./Post.css";
 
 function Posts() {
 	const [post, setPost] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const fetchPost = async () => {
 		try {
@@ -12,6 +13,7 @@ function Posts() {
 			);
 			const data = await response.json();
 			setPost(data);
+			setIsLoading(false);
 		} catch (err) {
 			console.log(err);
 		}
@@ -25,11 +27,15 @@ function Posts() {
 		<section className="Posts">
 			<h2>Hello, here are the Posts</h2>
 
-			<div className="card_post">
-				{post.map((item, index) => (
-					<CardPost key={item.id} item={item} />
-				))}
-			</div>
+			{isLoading ? (
+				<h1 style={{ color: "white", textAlign: "center" }}>Loading...</h1>
+			) : (
+				<div className="card_post">
+					{post.map((item, index) => (
+						<CardPost key={item.id} item={item} />
+					))}
+				</div>
+			)}
 		</section>
 	);
 }

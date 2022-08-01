@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 function Singleblogpost() {
 	const [singlePost, setSinglePost] = useState({});
+	const [isLoading, setIsLoading] = useState(true);
 
 	const { id } = useParams();
 	console.log(id);
@@ -15,6 +16,7 @@ function Singleblogpost() {
 			const data = await response.json();
 			console.log(data);
 			setSinglePost(data);
+			setIsLoading(false);
 		} catch (error) {
 			console.log(error);
 		}
@@ -26,15 +28,21 @@ function Singleblogpost() {
 
 	return (
 		<section className="container" style={{ color: "white" }}>
-			<h1>
-				PWC Blog Post <span>Blog Post {id}</span>
-			</h1>
-			<hr />
-			<h4>{singlePost.title}</h4>
-			<hr />
-			<div className="postbody">
-				<p>{singlePost.body}</p>
-			</div>
+			{isLoading ? (
+				<h2>Loading...</h2>
+			) : (
+				<>
+					<h1>
+						PWC Blog Post <span>Blog Post {id}</span>
+					</h1>
+					<hr />
+					<h4>{singlePost.title}</h4>
+					<hr />
+					<div className="postbody">
+						<p>{singlePost.body}</p>
+					</div>
+				</>
+			)}
 		</section>
 	);
 }

@@ -1,0 +1,50 @@
+.main {
+	background-color: azure;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 500px;
+	width: 600px;
+	margin: auto;
+	background-color: aliceblue;
+	padding: 50px;
+}
+
+.input_div {
+	margin: 0.75rem 0;
+}
+
+input {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin: 0.5rem 0;
+}
+
+.btn {
+	width: 100%;
+	padding: 0.5rem;
+	background-color: blue;
+	border-radius: 4px;
+	margin: 0.5rem 0;
+	border: 1px solid blue;
+	color: white;
+}
+
+p {
+	color: red;
+}
+
+.success {
+	width: 300px;
+	background-color: green;
+	padding: 0.25rem;
+	color: white;
+	margin: auto;
+	text-align: center;
+	border-radius: 5px;
+}

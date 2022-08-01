@@ -15,6 +15,7 @@ import Users from "./pages/Users";
 import Todo from "./pages/Todo";
 import Login from "./pages/Login";
 import Singleblogpost from "./pages/Singleblogpost";
+import Conditionals from "./pages/Conditionals";
 
 function App() {
 	return (
@@ -32,6 +33,7 @@ function App() {
 				<Route path="/recruitmentform" element={<Recruitmentform />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/singleblogpost/:id" element={<Singleblogpost />} />
+				<Route path="/conditionals" element={<Conditionals />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
