@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Conditionals = () => {
 	const [text, setText] = useState(false);
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	// useEffect(() => {
+	// 	localStorage.getItem(isLoggedIn);
+	// });
+
+	// useEffect(() => {
+	// 	localStorage.setItem("text", text);
+	// 	console.log(text);
+	// }, [text]);
 
 	return (
 		<div style={{ textAlign: "center", color: "white" }}>

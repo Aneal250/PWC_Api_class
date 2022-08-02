@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./RecruitmentForm.css";
 
 const Recruitmentform = () => {
@@ -7,6 +7,7 @@ const Recruitmentform = () => {
 	const [inputValue, setInputValue] = useState({ initialState });
 	const [errorCheck, setErrorCheck] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
+	const [storedData, setStoredData] = useState({});
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -16,8 +17,15 @@ const Recruitmentform = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		setErrorCheck(validateInput(inputValue));
+		console.log(inputValue);
+
+		const input = {
+			username: "john",
+			email: "anealemeka@gmail.com",
+			password: "Admin12345",
+		};
+		localStorage.setItem("inputValue", JSON.stringify(input));
 	};
 
 	const validateInput = (values) => {
@@ -52,6 +60,14 @@ const Recruitmentform = () => {
 		return error;
 	};
 
+	useEffect(() => {
+		const data = localStorage.getItem("inputValue");
+		if (data) {
+			setStoredData(JSON.parse(data));
+		}
+	}, []);
+
+	console.log(storedData);
 	return (
 		<div className="main">
 			<div className="container">
@@ -103,6 +119,12 @@ const Recruitmentform = () => {
 							Submit
 						</button>
 					</form>
+
+					<div>
+						<span>name: {storedData.username}</span>
+						<span>email: {storedData.email}</span>
+						<span>password: {storedData.password}</span>
+					</div>
 				</div>
 			</div>
 		</div>
